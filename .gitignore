@@ -1,7 +1,5 @@
-/.idea/
 /node_modules/
-/src
+/package.json
+/package-lock.json
+/src/
 /.git
-/**/*.psd
-/**/Thumbs.db
-/**/*.DS_Store
