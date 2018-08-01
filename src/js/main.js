@@ -1,37 +1,36 @@
-var img = new Image();
+// Show and hide aside menu.
+	$('.aside-btn-open').on('click', function(){
+		$('.main').addClass('main-full');
+		$('.aside').addClass('aside-visible');
+		$(this).fadeOut(500);
+	});
+	
+	$('.aside-btn').on('click', function(){
+		$('.main').removeClass('main-full');
+		$('.aside').removeClass('aside-visible');
+		$('.aside-btn-open').fadeIn(400);
+	});
 
-img.src = '/img/joel-filipe-196491-unsplash.jpg';
+// Show and hide submenu.
+$('.nav-list-item').on('click', function(){
+	$(this).find('.nav-sublist').toggleClass('active');
+});
 
-img.onload = function() {
-  draw(this);
-};
+// Custom select.
+$('.pseudo-select-list').on('click', 'li', function(){
+	var $this 		= $(this),
+		list_index  = $this.index();
+		
+	// Set index for invisible option from pseudo select.
+	$('select option').eq(list_index).filter(function(){
+		var $option = $(this);
+			
+		$option.prop('selected', true);
+	});
+	
+	// Choose pseudo item.
+	$('.pseudo-choosed-item').html($this.text());
+});
 
-function draw(img) {
-  var canvas = document.getElementById('canvas');
-  var ctx = canvas.getContext('2d');
-  ctx.drawImage(img, 0, 0);
-  img.style.display = 'none';
-  var zoomctx = document.getElementById('zoom').getContext('2d');
- 
-  var smoothbtn = document.getElementById('smoothbtn');
-  var toggleSmoothing = function(event) {
-    zoomctx.imageSmoothingEnabled = this.checked;
-    zoomctx.mozImageSmoothingEnabled = this.checked;
-    zoomctx.webkitImageSmoothingEnabled = this.checked;
-    zoomctx.msImageSmoothingEnabled = this.checked;
-  };
-  smoothbtn.addEventListener('change', toggleSmoothing);
 
-  var zoom = function(event) {
-    var x = event.layerX;
-    var y = event.layerY;
-    zoomctx.drawImage(canvas,
-                      Math.abs(x - 5),
-                      Math.abs(y - 5),
-                      200, 200,
-                      0, 0,
-                      200, 200);
-  };
 
-  canvas.addEventListener('mousemove', zoom);
-}

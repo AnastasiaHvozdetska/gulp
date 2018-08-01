@@ -25,7 +25,7 @@ var path = {
 		js:  'build/js/',
 		css: 'build/css/',
 		img: 'build/img/',
-		svg: 'build/svg',
+		svg: 'build/img/svg',
 		video: 'build/video',
 		fonts: 'build/fonts',
 		audio: 'build/audio'
@@ -36,14 +36,15 @@ var path = {
 			'src/js/**/*.js'
 		],
 		style: [
-			'src/style/*.scss' /* Custom styles */
+			'src/style/*.scss',
+			'src/style/*.css'/* Custom styles */
 		],
 		img: [
 			'src/img/*.jpg',
 			'src/img/*.png'
 		],
 		svg: [
-			'src/svg/*.svg'
+			'src/img/svg/*.svg'
 		],
 		video: [
 			'src/video/*.mp4'

@@ -1,5 +1,120 @@
+$mainColor: #FF9505;
+
+button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+
 body {
-	display: flex;
-	background-color: beige;
-	
+	font-family: 'Lato', sans-serif;
+	position: relative;
+	.aside {
+		width: 0;
+		height: 100%;
+		position: fixed;
+		background-color: $mainColor;
+		top: 0;
+		left: 0;
+		padding-bottom: 0;
+		transition: .5s ease-in-out;
+		overflow-x: hidden;
+		.aside-container {
+			width: auto;
+			height: 100%;
+			position: relative;
+			.aside-btn {
+				width: 40px;
+				height: 40px;
+				background-color: transparent;
+				color: black;
+				position: absolute;
+				top: 10px;
+				right: 10px;
+				transition: .4s ease-out;
+				&:hover {
+					color: #675d5d;
+					transition: .4s ease-in;
+				}
+			}
+			.aside-navigation {
+				padding: 30px 15px;
+				.nav-list {
+					.nav-list-item {
+						margin: 30px 0;
+						a {
+							display: inline-block;
+							font-size: 24px;
+							font-weight: 300;
+							color: #f4f4f4;
+							border-bottom: 2px solid #dd1e1e;
+							position: relative;
+							transition: .4s ease-in-out;
+							&:hover {
+								color: #CC5803;
+								transition: .4s ease-in-out;
+								transform: translateX(10px);
+							}
+							
+						}
+						.nav-sublist {
+							max-height: 0;
+							transition: .5s ease-out;
+							overflow: hidden;
+							.sublist-item {
+								padding-left: 10px;
+								margin-bottom: 10px;
+								margin-top: 5px;
+								a {
+									font-size: 18px;
+									border-bottom: 1px solid #dd1e1e;
+								}
+							}
+						}
+						.nav-sublist.active {
+							
+							display: block;
+  							max-height: 250px;
+							transition: .5s ease-in;
+							
+							
+						}
+					}
+				}
+			}
+		}
+	}
+	.aside-visible {
+		width: 20vw;
+		transition: .5s ease-in-out;
+	}
+	.main {
+		height: 100vh;
+		background-color: #f9f4f1;
+		transition: margin-left .5s;
+		position: relative;
+		.aside-btn-open {
+			transition: .5s ease-in-out;
+			position: absolute;
+			top: 10px;
+			left: 10px;
+			width: 40px;
+			height: 40px;
+			background-color: transparent;
+			color: black;
+		}
+		.select-wrapper {
+			padding: 200px;
+			.pseudo-select-list {
+				.pseudo-select-item {
+					border: 1px solid blue;
+				}
+			}
+		}
+	}
+	.main-full {
+		transition: .5s ease-in-out;
+		margin-left: 20vw;
+	}	
 }
