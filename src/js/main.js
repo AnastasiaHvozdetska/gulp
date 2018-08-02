@@ -33,4 +33,16 @@ $('.pseudo-select-list').on('click', 'li', function(){
 });
 
 
+// Validation.
+var email = document.getElementById('client');
 
+  if (client) {
+    client.onchange = onClientChange;
+  }
+
+function onClientChange() {
+    var element = this,
+        errorMessage = " Имя задано неправильно ";
+        regexp = /^[А-Я]{0,1}[а-я]{1,15}( [А-Я]{0,1}[а-я]{1,15}){0,1}$|^[A-Z]{0,1}[a-z]{1,15}( [A-Z]{0,1}[a-z]{1,15}){0,1}$/; //Пропускаем только латинские или русские буквы и пробел между первым и вторым словом (если второе слово есть). Оба слова могут начинаться с большой буквы
+    grantDeny(element, regexp, errorMessage);
+  }
