@@ -1,121 +1,198 @@
 $mainColor: #FF9505;
 
-button {
+button, a {
 	outline: none;
 	border: none;
-	cursor: pointer;
+	cursor: none;
 }
-
 
 body {
 	font-family: 'Lato', sans-serif;
 	position: relative;
-	.aside {
-		width: 0;
+	cursor: none;
+}
+
+.circle {
+	width: 25px;
+	height: 25px;
+	border-radius: 50%;
+	box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.95);
+	position: absolute;
+	margin-right: 10px;
+	z-index: 20;
+}
+
+.aside {
+	width: 0;
+	height: 100%;
+	position: fixed;
+	background-color: $mainColor;
+	top: 0;
+	left: 0;
+	padding-bottom: 0;
+	transition: .5s ease-in-out;
+	overflow-x: hidden;
+	.aside-container {
+		width: auto;
 		height: 100%;
-		position: fixed;
-		background-color: $mainColor;
-		top: 0;
-		left: 0;
-		padding-bottom: 0;
-		transition: .5s ease-in-out;
-		overflow-x: hidden;
-		.aside-container {
-			width: auto;
-			height: 100%;
-			position: relative;
-			.aside-btn {
-				width: 40px;
-				height: 40px;
-				background-color: transparent;
-				color: black;
-				position: absolute;
-				top: 10px;
-				right: 10px;
-				transition: .4s ease-out;
-				&:hover {
-					color: #675d5d;
-					transition: .4s ease-in;
-				}
+		position: relative;
+		.aside-btn {
+			width: 40px;
+			height: 40px;
+			background-color: transparent;
+			color: black;
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			transition: .4s ease-out;
+			&:hover {
+				color: #675d5d;
+				transition: .4s ease-in;
 			}
-			.aside-navigation {
-				padding: 30px 15px;
-				.nav-list {
-					.nav-list-item {
-						margin: 30px 0;
-						a {
-							display: inline-block;
-							font-size: 24px;
-							font-weight: 300;
-							color: #f4f4f4;
-							border-bottom: 2px solid #dd1e1e;
-							position: relative;
+		}
+		.aside-navigation {
+			padding: 30px 15px;
+			.nav-list {
+				.nav-list-item {
+					margin: 30px 0;
+					a {
+						display: inline-block;
+						font-size: 24px;
+						font-weight: 300;
+						color: #f4f4f4;
+						border-bottom: 2px solid #dd1e1e;
+						position: relative;
+						transition: .4s ease-in-out;
+						&:hover {
+							color: #CC5803;
 							transition: .4s ease-in-out;
-							&:hover {
-								color: #CC5803;
-								transition: .4s ease-in-out;
-								transform: translateX(10px);
-							}
-							
+							transform: translateX(10px);
 						}
-						.nav-sublist {
-							max-height: 0;
-							transition: .5s ease-out;
-							overflow: hidden;
-							.sublist-item {
-								padding-left: 10px;
-								margin-bottom: 10px;
-								margin-top: 5px;
-								a {
-									font-size: 18px;
-									border-bottom: 1px solid #dd1e1e;
-								}
+
+					}
+					.nav-sublist {
+						max-height: 0;
+						transition: .5s ease-out;
+						overflow: hidden;
+						.sublist-item {
+							padding-left: 10px;
+							margin-bottom: 10px;
+							margin-top: 5px;
+							a {
+								font-size: 18px;
+								border-bottom: 1px solid #dd1e1e;
 							}
 						}
-						.nav-sublist.active {
-							
-							display: block;
-  							max-height: 250px;
-							transition: .5s ease-in;
-							
-							
-						}
+					}
+					.nav-sublist.active {
+
+						display: block;
+						max-height: 250px;
+						transition: .5s ease-in;
+
+
 					}
 				}
 			}
 		}
 	}
-	.aside-visible {
-		width: 20vw;
+}
+
+.aside-visible {
+	width: 20vw;
+	transition: .5s ease-in-out;
+}
+
+.main {
+	height: 100vh;
+	background-color: #f4f4f4;
+	transition: margin-left .5s;
+	position: relative;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-left: 40px;
+	.aside-btn-open {
 		transition: .5s ease-in-out;
+		position: absolute;
+		top: 10px;
+		left: 10px;
+		width: 40px;
+		height: 40px;
+		background-color: transparent;
+		color: black;
 	}
-	.main {
-		height: 100vh;
-		background-color: #f9f4f1;
-		transition: margin-left .5s;
-		position: relative;
-		.aside-btn-open {
-			transition: .5s ease-in-out;
-			position: absolute;
-			top: 10px;
-			left: 10px;
-			width: 40px;
-			height: 40px;
-			background-color: transparent;
-			color: black;
-		}
-		.select-wrapper {
-			padding: 200px;
-			border: 1px solid red;
-			.pseudo-select-list {
-				.pseudo-select-item {
-					border: 1px solid blue;
-				}
-			}
-		}
-	}
-	.main-full {
-		transition: .5s ease-in-out;
-		margin-left: 20vw;
-	}	
+}
+
+.main-full {
+	transition: .5s ease-in-out;
+	margin-left: 20vw;
+}
+
+/* Components CSS styles. */
+.select-wrapper {
+    width: 200px;
+    float: left;
+    margin-right: 20px;
+    margin-bottom: 10px;
+    position: relative;
+    border: 1px solid transparent;
+    .pseudo-choosed-item {
+        box-shadow: 0 0 5px 3px rgba(0,0,0,.09);
+        width: 100%;
+        height: 40px;
+//        cursor: pointer;
+        display: flex;
+        align-items: center;
+        position: relative;
+		background-color: #525252;
+        &::after {
+            content: "\f078";
+            font-weight: 900;
+            font-family: "Font Awesome 5 Free"; 
+            position: absolute;
+            top: calc(50% - 4px);
+            right: 2px;
+            transform: translate(-50%,-50%);
+            color: #fff;
+            font-size: 12px;
+            pointer-events: none;
+            z-index: 1;
+            transition: all 250ms cubic-bezier(.4,.25,.3,1);
+            opacity: 1;
+        }
+    }
+
+    .pseudo-choosed-item.active::after {
+        transform: translate(-50%,-50%) rotate(180deg);
+    }
+    .pseudo-select-list {
+        max-height: 0;
+        overflow: hidden;
+        width: 100%;
+        position: absolute;
+        transition: .5s ease;
+        z-index: 10;
+        .pseudo-select-item {
+            height: 40px;
+            padding-left: 10px;
+            display: flex;
+            align-items: center;   
+//            cursor: pointer;
+            background-color: #333333;
+            transition: .5s ease;
+            &:hover {
+                background-color: #292929;
+            }
+        }
+    }
+    .pseudo-select-list.active {
+        position: absolute;
+        max-height: 250px;
+        transition: .5s ease;
+    }
+
+    select {
+        display: none;
+    }
 }
